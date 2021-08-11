@@ -1,0 +1,33 @@
+/*Цвета*/
+$white: #fff;
+$light-gray: #eeeeee;
+$dark-gray: #e0e0e0;
+$darker-gray: #c4c4c4;
+$black: #000;
+$blue: #00D6FF;
+
+/*Шрифты*/
+$main-font: 'Roboto', Arial, sans-serif;
+$fz12: 12px;
+$fz16: 16px;
+$fz18: 18px;
+$fz20: 20px;
+$fz48: 48px;
+
+@mixin breakpoint($point){
+    @if $point == xl {
+        @media(max-width:1200px){@content;}
+    }
+    @else if $point == lg {
+        @media(max-width:992px){@content;}
+    }
+    @else if $point == md {
+        @media(max-width:768px){@content;}
+    }
+    @else if $point == sm {
+        @media(max-width:576px){@content;}
+    }
+    @else if $point == xs {
+        @media(max-width:320px){@content;}
+    }
+}

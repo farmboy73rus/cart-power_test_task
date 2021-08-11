@@ -1,0 +1,231 @@
+@charset "UTF-8";
+/*Цвета*/
+/*Шрифты*/
+* {
+  font-family: "Roboto", Arial, sans-serif;
+}
+
+.wrapper {
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+.header {
+  background-color: #eeeeee;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 12px;
+  line-height: 12px;
+}
+
+.header-top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 16px 0px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.header-bottom {
+  padding: 22px 0px;
+}
+
+.place, .phone {
+  font-weight: 700;
+}
+
+.place::before {
+  content: "";
+  background: url("../img/pin.svg");
+  display: inline-block;
+  height: 14px;
+  width: 14px;
+  margin-right: 5px;
+}
+
+.phone-link {
+  color: #000;
+}
+
+.nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style-type: none;
+  padding-right: 0;
+  -webkit-padding-start: 0;
+          padding-inline-start: 0;
+  margin: 0 auto;
+}
+
+.nav-item {
+  margin-left: 20px;
+}
+
+.nav-item:first-child {
+  margin-left: 0;
+}
+
+.nav-link {
+  color: #000;
+  text-decoration: none;
+}
+
+.logo {
+  background-color: #c4c4c4;
+  display: inline-block;
+  text-align: center;
+  padding: 10px 14px;
+}
+
+.logo > p {
+  margin: 2px 0px;
+}
+
+.name {
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.sub {
+  font-size: 10px;
+  color: rgba(0, 0, 0, 0.4);
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+.banner {
+  background-image: url("/[cart-power] TestTask/img/banner.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  width: 100%;
+}
+
+.banner-text {
+  padding: 90px 40px;
+}
+
+.banner-subtitle {
+  margin: 0;
+  padding-top: 14px;
+}
+
+.breadcumbs {
+  font-size: 12px;
+  padding-bottom: 14px;
+  margin: 0;
+  -webkit-margin-before: 0;
+          margin-block-start: 0;
+  -webkit-margin-after: 0;
+          margin-block-end: 0;
+}
+
+.title {
+  font-size: 48px;
+  -webkit-margin-before: 0;
+          margin-block-start: 0;
+  -webkit-margin-after: 0;
+          margin-block-end: 0;
+}
+
+.media {
+  padding: 80px 0px;
+}
+
+/* Слайдер */
+/* Слайдер запущен */
+/* Слайдер с точками */
+/* Ограничивающая оболочка */
+.slick-list {
+  overflow: hidden;
+}
+
+/* Лента слайдов */
+.slick-track {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+/* Слайд */
+/* Слайд активный (показывается) */
+/* Слайд основной */
+/* Слайд по центру */
+/* Клонированный слайд */
+/* Стрелка */
+/* Стрелка влево */
+/* Стрелка вправо */
+/* Стрелка не активная */
+/* Точки (булиты) */
+/* Активная точка */
+/* Элемент точки */
+.slider {
+  padding: 30px 50px;
+  position: relative;
+}
+
+.slider .slick-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  font-size: 0;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  margin-top: -25px;
+}
+
+.slider .slick-arrow:hover {
+  cursor: pointer;
+}
+
+.slider .slick-arrow.slick-prev {
+  left: 0;
+  background: url("../img/arrow-left.svg") 0 0/100% no-repeat;
+}
+
+.slider .slick-arrow.slick-next {
+  right: 0;
+  background: url("../img/arrow-right.svg") 0 0/100% no-repeat;
+}
+
+.slider .slick-arrow.slick-disabled {
+  opacity: 0;
+}
+
+.text {
+  width: 860px;
+  font-size: 16px;
+  line-height: 140%;
+  padding-bottom: 81px;
+}
+
+.set {
+  background-color: #eeeeee;
+  padding: 80px 0px;
+}
+
+.footer {
+  background-color: #000;
+}
+
+.footer-wrapper {
+  max-width: 1229px;
+  margin: 0 auto;
+  padding: 47px 0 103px 0;
+}
+
+.footer-title {
+  color: #fff;
+  font-size: 24px;
+  width: 467px;
+}
+/*# sourceMappingURL=style — копия.css.map */
