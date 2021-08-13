@@ -2,6 +2,7 @@
 
 * {
     font-family: $main-font;
+    box-sizing: border-box;
 }
 
 *:focus {outline:none !important}
@@ -29,6 +30,9 @@ a{
         justify-content: space-between;
         padding: 15px 0px;
         border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+        @include breakpoint(lg){
+            display: none;
+        }
     }
     &__bottom{
         display: flex;
@@ -61,90 +65,210 @@ a{
     color: $black;
 }
 
-/*Бургер-меню*/
-#menu__toggle {
-    opacity: 0;
-  }
-  
-  #menu__toggle:checked ~ .menu__btn > span {
-    transform: rotate(45deg);
-  }
-  #menu__toggle:checked ~ .menu__btn > span::before {
-    top: 0;
-    transform: rotate(0);
-  }
-  #menu__toggle:checked ~ .menu__btn > span::after {
-    top: 0;
-    transform: rotate(90deg);
-  }
-  #menu__toggle:checked ~ .menu__box {
-    visibility: visible;
-    left: 0;
-  }
-  
-  .menu__btn {
-    display: flex;
-    align-items: center;
-    position: fixed;
-    top: 60px;
-    left: 20px;
-    width: 26px;
-    height: 26px;
-    cursor: pointer;
-    z-index: 10;
-  }
-  
-  .menu__btn > span,
-  .menu__btn > span::before,
-  .menu__btn > span::after {
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background-color: #616161;
-    transition-duration: .25s;
-  }
-  .menu__btn > span::before {
-    content: '';
-    top: -8px;
-  }
-  .menu__btn > span::after {
-    content: '';
-    top: 8px;
-  }
-  
-  .menu__box {
-    display: block;
-    position: fixed;
-    visibility: hidden;
-    top: 0;
-    left: -100%;
-    width: 300px;
-    height: 100vh;
-    margin: 0;
-    padding: 80px 0;
-    list-style: none;
-    background-color: #ECEFF1;
-    box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
-    transition-duration: .25s;
-    z-index: 9;
-  }
-  
-  .menu__item {
-    display: block;
-    padding: 12px 24px;
-    color: #333;
-    font-family: 'Roboto', sans-serif;
-    font-size: 20px;
-    font-weight: 600;
-    text-decoration: none;
-    transition-duration: .25s;
-  }
-  .menu__item:hover {
-    background-color: #CFD8DC;
-  }
+/*Мобильное меню со значками*/
 
-  /*Конец бургер-иеню*/
+.navbar-mobile {
+    display: none;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background: $light-gray;
+    padding: 0 16px;
+    z-index: 100;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    & .icon__item{
+        display: none;
+        flex-grow: 1;
+        @include breakpoint(md){
+            display: flex;
+            justify-content: space-around;
+        }
+        & .icon-heart, .icon-user, .icon-cart{
+            font-size: $fz32;
+        }
+        
+        & .icon-map-pin{
+            font-size: $fz32;
+        }
+        
+    }
+    @include breakpoint(md){
+        display: flex;
+        justify-content: space-around;
+    }
+}
+
+/*Конец мобильного меню*/
+
+/*Бургер-меню*/
+
+#site-menu li, #site-menu p {
+    padding: 10px;
+    margin: 0px;
+    color: #000000;
+    text-decoration: none;
+    text-transform: none;
+    list-style: none;
+    display: none;
+    text-align: center;
+    transition: all .5s;
+    font-size: calc(20px + (20 - 18) * ((100vw - 300px) / (1600 - 300)));
+}
+
+#site-menu p:hover {
+    display: block;
+    color: #5bc1e8;
+    transition: all .5s;
+    font-weight:bold;
+}
+
+/* hides toggle handler */
+[type="checkbox"]:checked, [type="checkbox"]:not(:checked) {
+    display: none;
+}
+
+/* menu button & animation */
+.menu-button {
+    display: none;
+    z-index: 100;
+    width: 45px;
+    height: 45px;
+    background-color: $black;
+    border-radius: 6px;
+    outline: none;
+    cursor: pointer;
+    transition: 0.25s ease-in-out;
+    margin-right: 20px;
+    &:hover{
+        background-color: $blue;
+    }
+    @include breakpoint(lg){
+        display: block;
+    }
+}
+
+.line {
+    position: relative;
+    left: 30%;
+    width: 40%;
+    height: 2px;
+    background:rgba(255, 255, 255, 0.9);
+    overflow: hidden;
+    transition: all 0.25s ease;
+}
+
+.line:nth-child(1) {
+    top: 33%;
+}
+
+.line:nth-child(2) {
+    top: 45%;
+}
+
+.line:nth-child(3) {
+    top: 60%;
+}
+
+/* animate background of lines */
+.menu-button:hover .line::after {
+    transform: translateX(0);
+}
+
+.menu-button .line::after {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    background: rgba(255, 255, 255,1);
+    transform: translateX(100%);
+    transition: all 0.25s ease;
+}
+
+#menu-toggle:checked + .menu-button .line::after {
+    background: rgba(91, 193, 232,1);
+}
+
+#menu-toggle:checked + .menu-button  { 
+    transform: rotate(180deg);
+    transition: transform .2s ease;
+}
+
+#menu-toggle:checked + #menu-button .line:nth-child(1){
+    transform: translateY(5px) rotate(45deg);/*45deg*/
+}
+
+
+#menu-toggle:checked + #menu-button .line:nth-child(2) {
+    transform: scaleX(0);
+    opacity:0;
+}
+
+#menu-toggle:checked + #menu-button .line:nth-child(3) {
+    transform: translateY(-11px) rotate(-45deg);/* -45deg*/
+}
+
+
+/* animate menu in */
+#menu-toggle:checked + #menu-button + #site-menu{
+    animation: menu-open 0.25s ease both;
+  
+}
+
+#menu-toggle:checked + #menu-button + #site-menu ul > li, #site-menu p {
+    display: block;
+    animation: menu-txt-open 0.3s ease both;
+}
+
+
+#site-menu {
+    position: absolute;
+    width: 0px;
+    height: 100vh;
+    right:0px;
+    top:0px;
+    margin: 0px; 
+    padding: 0px;
+    background-color: #fff;
+    animation: menu-closed .3s both;
+    z-index: 99;
+    transition: .2s;
+}
+
+#site-menu-titles{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+@keyframes menu-open {
+    100% {
+        width: 100vw;
+        height: 100vh;
+    }
+}
+@keyframes menu-closed {
+    0% {
+       width: 100vw;
+       height: 100vh;
+    }
+}
+@keyframes menu-txt-open {
+    0%, 70% {
+       opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
+
+/*Конец бургер-меню*/
 
 .nav{
     display: flex;
@@ -177,6 +301,14 @@ a{
     }
 }
 
+.drop::after{
+    background:url('img/down-arrow.svg') no-repeat right;
+    content: "";
+    height: 8px;
+    width: 8px;
+    display: block;
+}
+
 .submenu__item{
     background-color: $light-gray;
     list-style-type: none;
@@ -188,9 +320,6 @@ a{
     display: inline-block;
     text-align: center;
     padding: 9px 15px 7px;
-    @include breakpoint(xl){
-        margin: 0 0 10px;
-    }
     &:hover{
         background-color:$blue;
         cursor: pointer;
@@ -227,6 +356,7 @@ a{
         order: 2;
         flex-basis: 100%;
         margin: 0px;
+        margin-top: 20px;
     }
 }
 
@@ -237,6 +367,10 @@ a{
     opacity: 60%;
     right: 0;
     padding: 10px;
+    background-color: transparent;
+    &:hover{
+        opacity: 90%;
+    }
 }
 
 .catalog__btn{
@@ -251,6 +385,9 @@ a{
         background-color: $blue;
         color: $black;
     }
+    @include breakpoint(lg){
+        display: none;
+    }
 }
 
 .search{
@@ -261,6 +398,10 @@ a{
     border: 0;
     width: 100%;
     box-sizing: border-box;
+    @include breakpoint(lg){
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+    }
 }
 
 .icon__panel{
@@ -270,12 +411,21 @@ a{
     order:2;
     &>div{
         margin-left: 20px;
+        @include breakpoint(md){
+            margin-left: 0;
+        }
     }
     & a{
         color: inherit;
     }
     @include breakpoint(xl){
         order:1;
+    }
+}
+
+.header .icon__panel{
+    @include breakpoint(md){
+        display: none;
     }
 }
 
@@ -286,17 +436,34 @@ a{
     }
 }
 
-.icon__panel .icon-map-pin{
+.icon__panel .icon-map-pin,
+.icon__item .pin{
     color: $black;
     opacity: 40%;
+    @include breakpoint(md){
+        opacity: 100%;
+    }
+}
+
+.icon__item .pin,
+.icon__item .profile{
+    @include breakpoint(lg){
+        display: none;
+    }
 }
 
 .icon__panel .icon-map-pin::before{
     font-size: 20px;
+    @include breakpoint(lg){
+        font-size: 24px;
+    }
 }
 
 .icon__panel .icon-user::before{
     font-size: 20px;
+    @include breakpoint(lg){
+        font-size: 24px;
+    }
 }
 
 .icon__panel .icon-cart::before{
@@ -326,18 +493,25 @@ a{
 }
 
 .banner{
-    background-image: url("/[cart-power] TestTask/img/banner.png");
+    display: block;
+    background-image: url("../img/photo001.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
     width: 100%;
+    height: 300px;
     &__text{
         padding: 91px 40px;
+        background: linear-gradient(to right, rgba(255, 255, 255, 0.85), transparent);
+        @include breakpoint(lg){
+            text-align: center;
+        }
     }
     &__subtitle{
         margin: 0;
         padding-top: 18px;
     }
+    &:hover{cursor: pointer;}
 }
 .breadcrumbs{
     padding-bottom: 15px;
@@ -361,10 +535,17 @@ a{
     font-size: $fz48;
     margin-block-start: 0;
     margin-block-end: 0;
+    @include breakpoint(lg){
+        font-size: 40px;
+        text-align: center;
+    }
 }
 
 .page__light{
     padding: 80px 20px;
+    @include breakpoint(lg){
+        padding: 30px 20px;
+    }
 }
 
 /*Рейтинг*/
@@ -423,20 +604,23 @@ a{
 /*Блок с чекбоксами*/
 .set__list{
     padding-top: 43px;
+    display: flex;
+    @include breakpoint(xl){flex-direction: column;}
 }
 
 .list{
     padding-right: 13px;
     width: 35%;
-    display: block;
+    @include breakpoint(xl){width: 100%;padding-bottom: 30px;}
 }
 
 .box{
     font-size: $fz18;
     display:flex;
-    flex-direction:row;
+    flex-direction:column;
     align-items:center;
     justify-content:space-between;
+    align-items: flex-start;
     &-left{
         display: flex;
         flex-direction: column;
@@ -445,7 +629,29 @@ a{
     &-right{
       font-weight:700;
       padding-left:40px;
+      display: flex;
+      align-items: center;
     }
+    &__item{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+        min-width: 100%;
+    }
+    &>hr{
+        border-bottom: 1px solid $black;
+        width: 100%;
+    }
+  }
+
+  .summ{
+    padding-left: 80px;
+    font-weight: 700;
+  }
+
+  .all{
+      padding-bottom: 34px;
   }
   
   input[type='checkbox']{ height: 0; width: 0; }
@@ -474,6 +680,7 @@ a{
     bottom: 0;
     font-style: normal;
     color: black;
+    left: 2px;
   }
   .set input[type='checkbox'] + label > span{
     display: flex;
@@ -539,6 +746,9 @@ a{
 .slider{
     padding: 30px 0px 75px;
     position: relative;
+    @include breakpoint(lg){
+        padding: 30px 0px;
+    }
 }
 .set .slider{
     padding: 0px 0px 75px;
@@ -580,10 +790,14 @@ a{
 }
 
 .slider__item{
+    width: 260px;
     margin-right: -10px;
     padding: 0 20px;
     & img{
         min-width: 100%;
+        width: 260px;
+        height: 170px;
+        object-fit: cover;
     }
     &:first-child{
         padding: 0 20px 0 0;
@@ -625,9 +839,15 @@ a{
     &__subtitle{
         color: $blue;
         margin-bottom: 72px;
+        @include breakpoint(lg){
+            margin-bottom: 48px;
+        }
     }
     &__subscribe{
         margin-bottom: 103px;
+        @include breakpoint(lg){
+            margin-bottom: 48px;
+        }
     }
 }
 
@@ -635,15 +855,29 @@ a{
 .link{
     display: flex;
     justify-content: space-between;
+    @include breakpoint(lg){
+        flex-direction: column;
+    }
     &__list{
         display: flex;
         flex-direction: column;
         flex-wrap: wrap;
-        align-content: space-between;
         columns: 2;
         column-gap: 189px;
         padding-inline-start: 0px;
         height: 165px;
+        order: 0;
+        @include breakpoint(lg){
+            order: 1;
+            column-gap: 0;
+        }
+        @include breakpoint(sm){
+            flex-wrap: no-wrap;
+            columns: 1;
+            height: 100%;
+            text-align: center;
+            justify-content: space-around;
+        }
         &-item{
             list-style-type: none;
             padding-bottom: 12px;
@@ -661,11 +895,22 @@ a{
 
 /*Блок контактов*/
 .contacts{
+    display: flex;
+    flex-direction: column;  
+    flex-wrap: wrap;
+    order: 1;
     padding-inline-start: 0px;
     text-align: right;
     list-style-type: none;
     & a:hover{
         color:$blue;
+    }
+    @include breakpoint(lg){
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        gap: 20px;
+        order: 0;
     }
 }
 
@@ -682,6 +927,9 @@ a{
 .contacts>.phone{
     margin-top: 20px;
     margin-bottom: 12px;
+    @include breakpoint(lg){
+        margin-top: 0px;
+    }
     &>a{
         font-size: $fz12;
         color: $white;
@@ -698,6 +946,10 @@ a{
     text-decoration: underline;
 }
 
+.contacts>.mail{
+    margin-bottom: 12px;
+}
+
 .politics{
     font-size: 14px;
     margin-bottom: 20px;
@@ -707,12 +959,19 @@ a{
     &>a:hover{
         color: $blue;
     }
+    @include breakpoint(sm){
+        text-align: center;
+    }
 }
 
 .copyright{
     font-size: $fz16;
     color: $white;
     opacity: 60%;
+    @include breakpoint(sm){
+        font-size: $fz12;
+        text-align: center;
+    }
 }
 
 /*Карточка товара*/
@@ -750,10 +1009,11 @@ a{
     font-size: $fz16;
 }
 
-.bedroom-slider .slider__item{
+.bedroom-slider .slider__item,
+.set .slider__item{
     display: flex;
     flex-direction: column;
-    max-width: 216px;
+    min-width: 216px;
     border-radius: 6px;
     background-color: $dark-gray;
     margin-right: 20px;
@@ -765,11 +1025,11 @@ a{
 }
 
 .slider__item-thumb{
-    background-image: url("../img/photo.png");
+    background-image: url("../img/photo010.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-    max-width: 216px;
+    min-width: 216px;
     width: 100%;
     height: 216px;
     border-top-left-radius: inherit;
@@ -795,6 +1055,8 @@ a{
 
 .slider__item-content{
     padding: 15px;
+    min-width: 216px;
+    
 }
 
 .old-price{
@@ -1022,3 +1284,34 @@ a{
   }
 
   /*Конец формы подписки*/
+
+  .star-rating{
+	font-size: 0;
+}
+.star-rating__wrap{
+	display: inline-block;
+	font-size: 12px;
+}
+.star-rating__wrap:after{
+	content: "";
+	display: table;
+	clear: both;
+}
+.star-rating__ico{
+	float: right;
+	padding-left: 8px;
+	cursor: pointer;
+	color: #000;
+}
+.star-rating__ico:last-child{
+	padding-left: 0;
+}
+.star-rating__input{
+	display: none;
+}
+.star-rating__ico:hover:before,
+.star-rating__ico:hover ~ .star-rating__ico:before,
+.star-rating__input:checked ~ .star-rating__ico:before
+{
+	content: "\f005";
+}

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/iconfont.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
 <body>
     <header class="header">
@@ -26,7 +27,7 @@
                             <li class="nav__item"><a class="nav__link" href="">Кредит и рассрочка</a></li>
                             <li class="nav__item"><a class="nav__link" href="">Сборка</a></li>
                             <li class="nav__item">
-                                <a class="nav__link" href="">Частые вопросы</a>
+                                <a class="nav__link drop" href="">Частые вопросы</a>
                                 <ul class="nav__submenu">
                                     <li class="submenu__item">
                                         <a class="nav__link" href="">О нас</a></li>
@@ -42,22 +43,24 @@
                 </div>
                 <div class="header__bottom">
                     <div class="header__bottom-container">
-                        <div class="hamburger-menu">
-                            <input id="menu__toggle" type="checkbox" />
-                            <label class="menu__btn" for="menu__toggle">
-                              <span></span>
+                        <input type="checkbox" id="menu-toggle"/>
+                            <label id="menu-button" class="menu-button" for="menu-toggle">
+                            <div class="line"></div>
+                            <div class="line" style="width:25%;"></div>
+                            <div class="line"></div>
                             </label>
-                            <ul class="menu__box">
-                                <li><a class="menu__item" href="#">Как заказать</a></li>
-                                <li><a class="menu__item" href="#">Доставка и оплата</a></li>
-                                <li><a class="menu__item" href="#">Кредит и рассрочка</a></li>
-                                <li><a class="menu__item" href="#">Сборка</a></li>
-                                <li><a class="menu__item" href="#">О нас</a></li>
-                                <li><a class="menu__item" href="#">Частые вопросы</a></li>
-                                <li><a class="menu__item" href="#">Отзывы</a></li>
-                                <li><a class="menu__item" href="#">Гарантии</a></li>
+                            <div id="site-menu">
+                            <ul id="site-menu-titles">
+                                <li><a href=""><p>Каталог</p></a></li>
+                                <li><a href=""><p>Как заказать</p></a></li>
+                                <li><a href=""><p>Доставка и оплата</p></a></li>
+                                <li><a href=""><p>Кредит и рассрочка</p></a></li>
+                                <li><a href=""><p>Сборка</p></a></li>
+                                <li><a href=""><p>О нас</p></a></li>
+                                <li><a href=""><p>Отзывы</p></a></li>
+                                <li><a href=""><p>Гарантии</p></a></li>
                             </ul>
-                        </div>
+                            </div>  
                         <div class="logo">
                             <p class="name">Test</p>
                             <p class="sub">Сеть мебельных магазинов</p>
@@ -66,8 +69,8 @@
                     
                     <div class="icon__panel">
                         <div class="icon__item"><a href="#"><div class="icon-heart"></div></a></div>
-                        <div class="icon__item"><a href="#"><div class="icon-map-pin">Адреса</div></a></div>
-                        <div class="icon__item"><a href="#"><div class="icon-user">Профиль</div></a></div>
+                        <div class="icon__item"><a href="#"><span class="pin">Адреса</span><span class="icon-map-pin"></span></a></div>
+                        <div class="icon__item"><a href="#"><span class="profile">Профиль</span><span class="icon-user"></span></a></div>
                         <div class="icon__item"><a href="#"><div class="icon-cart flex"><div class="round"><p>1</p></div></div></a></div>
                     </div>
                     <div class="search__panel">
@@ -75,7 +78,7 @@
                             Каталог
                         </button>
                         <input class="search" type="search" placeholder="Например, двухъярусная кровать">
-                        <span class="icon-search"></span>
+                        <button class="icon-search"></button>
                     </div>
                 </div>
             </div>
@@ -98,22 +101,22 @@
             <!--Слайдер-->
             <div class="slider">
                 <div class="slider__item">
-                    <img src="img/photo.png" alt="">
+                    <a href=""><img src="img/photo007.jpg" alt=""></a>
                 </div>
                 <div class="slider__item">
-                    <img src="img/video.png" alt="">
+                    <a href=""><img src="img/photo003.jpg" alt=""></a>
                 </div>
                 <div class="slider__item">
-                    <img src="img/photo.png" alt="">
+                    <a href=""><img src="img/photo004.jpg" alt=""></a>
                 </div>
                 <div class="slider__item">
-                    <img src="img/photo.png" alt="">
+                    <a href=""><img src="img/photo005.jpg" alt=""></a>
                 </div>
                 <div class="slider__item">
-                    <img src="img/photo.png" alt="">
+                    <a href=""><img src="img/photo006.jpg" alt=""></a>
                 </div>
                 <div class="slider__item">
-                    <img src="img/photo.png" alt="">
+                    <a href=""><img src="img/photo002.jpg" alt=""></a>
                 </div>
             </div>
             <div class="text"> Представляем вашему вниманию спальный гарнитур «Натали» Он выполнен в&nbsp;классическом стиле с&nbsp;элементами аристократии и&nbsp;роскоши. В&nbsp;комплект входят: кровать, прикроватные тумбы, несколько вариантов шкафов и&nbsp;комод с&nbsp;зеркалом. Обратите внимание, все&nbsp;модули комплекта вы&nbsp;можете приобрести по&nbsp;отдельности. Коллекция «Натали» может быть выполнена в&nbsp;двух цветах: в&nbsp;темном оттенке «Орех», а&nbsp;также в&nbsp;более светлом решении «Клен Ясень Бежевый» Рекомендуем Вам обязательно посмотреть видео спальни, гостиной и&nbsp;прихожей из&nbsp;коллекции «Натали». 
@@ -123,30 +126,79 @@
         <div class="set">
             <div class="wrapper">
                 <h2 class="title">Подборка один</h2>
-                <!--<fieldset class="rating">
-                    <div class="rating__group">
-                        <input class="rating__star" type="radio" name="star" value="1" aria-label="Ужасно" checked>
-                        <input class="rating__star" type="radio" name="star" value="2" aria-label="Сносно">
-                        <input class="rating__star" type="radio" name="star" value="3" aria-label="Нормально">
-                        <input class="rating__star" type="radio" name="star" value="4" aria-label="Хорошо">
-                        <input class="rating__star" type="radio" name="star" value="5" aria-label="Отлично">
-                    </div>
-                  </fieldset>-->
                 <div class="set__list">
                     <div class="list">
                         <!--Чеклист-->
                         <div class="box-all">
                             <div class="box">
-                              <div class="box-left">
-                                  <input id='one' type='checkbox' />
-                                  <label for='one'>
-                                    <span></span>
-                                    Кровать «Триумф» 160
-                                    <ins><i>Кровать «Триумф» 160</i></ins>
-                                  </label>  
-                              </div>
-                              <div class="box-right">8 000 ₽</div>
-                            </div>
+                                <div class="box__item">
+                                    <input id='one' type='checkbox'checked />
+                                    <label for='one'>
+                                        <span></span>
+                                        Кровать «Триумф» 160
+                                        <ins><i>Кровать «Триумф» 160</i></ins>
+                                    </label>
+                                    <div class="summ">8 000 ₽</div>
+                                </div>
+                                <div class="box__item">
+                                    <input id='two' type='checkbox'checked />
+                                    <label for='two'>
+                                        <span></span>
+                                        Матрас средний
+                                        <ins><i>Матрас средний</i></ins>
+                                    </label>
+                                    <div class="summ">10 000 ₽</div>
+                                </div>
+                                <div class="box__item">
+                                    <input id='three' type='checkbox' />
+                                    <label for='three'>
+                                        <span></span>
+                                        Тумба прикроватная
+                                        <ins><i>Тумба прикроватная</i></ins>
+                                    </label>
+                                    <div class="summ">2 000 ₽</div>
+                                </div>
+                                <div class="box__item">
+                                    <input id='four' type='checkbox'checked />
+                                    <label for='four'>
+                                        <span></span>
+                                        Шкаф 4-дверный
+                                        <ins><i>Шкаф 4-дверный</i></ins>
+                                    </label>
+                                    <div class="summ">10 000 ₽</div>
+                                </div>
+                                <div class="box__item">
+                                    <input id='five' type='checkbox'checked />
+                                    <label for='five'>
+                                        <span></span>
+                                        Комод<ins><i>Комод</i></ins>
+                                    </label>
+                                    <div class="summ">2 000 ₽</div>
+                                </div>
+                                <div class="box__item">
+                                    <input id='six' type='checkbox'checked />
+                                    <label for='six'>
+                                        <span></span>
+                                        Зеркало
+                                        <ins><i>Зеркало</i></ins>
+                                    </label>
+                                    <div class="summ">2 000 ₽</div>
+                                </div>
+                                <div class="box__item">
+                                    <input id='seven' type='checkbox'checked />
+                                    <label for='seven'>
+                                        <span></span>
+                                        Пуф
+                                        <ins><i>Пуф</i></ins>
+                                    </label>
+                                    <div class="summ">2 000 ₽</div>
+                                </div>
+                                <hr>
+                                <div class="box__item all">
+                                    <label>Итого</label>
+                                    <div class="summ">2 000 ₽</div>
+                                </div>
+                            </div>   
                         </div>
                         <!--Конец чеклиста-->
                         <button type="button" class="cart-button">
@@ -158,7 +210,22 @@
                         <div class="slider__item">
                             <div class="slider__item-thumb"></div>
                             <div class="slider__item-content">
-                                <div class="slider__item-rate"></div>
+                                <div class="slider__item-rate">
+                                    <div class="star-rating">
+                                        <div class="star-rating__wrap">
+                                            <input class="star-rating__input" id="star-rating-5" type="radio" name="rating" value="5">
+                                            <label class="star-rating__ico fa fa-star-o fa-lg" for="star-rating-5" title="5 out of 5 stars"></label>
+                                            <input class="star-rating__input" id="star-rating-4" type="radio" name="rating" value="4">
+                                            <label class="star-rating__ico fa fa-star-o fa-lg" for="star-rating-4" title="4 out of 5 stars"></label>
+                                            <input class="star-rating__input" id="star-rating-3" type="radio" name="rating" value="3">
+                                            <label class="star-rating__ico fa fa-star-o fa-lg" for="star-rating-3" title="3 out of 5 stars"></label>
+                                            <input class="star-rating__input" id="star-rating-2" type="radio" name="rating" value="2">
+                                            <label class="star-rating__ico fa fa-star-o fa-lg" for="star-rating-2" title="2 out of 5 stars"></label>
+                                            <input class="star-rating__input" id="star-rating-1" type="radio" name="rating" value="1">
+                                            <label class="star-rating__ico fa fa-star-o fa-lg" for="star-rating-1" title="1 out of 5 stars"></label>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="slider__item-title">Кровать «Триумф»</div>
                                 <div class="price">8 000 ₽ </div>
                                 <button type="button" class="cart-button">
@@ -170,7 +237,22 @@
                         <div class="slider__item">
                             <div class="slider__item-thumb"></div>
                             <div class="slider__item-content">
-                                <div class="slider__item-rate"></div>
+                                <div class="slider__item-rate">
+                                    <div class="star-rating">
+                                        <div class="star-rating__wrap">
+                                            <input class="star-rating__input" id="12" type="radio" name="rating" value="5">
+                                            <label class="star-rating__ico fa fa-star-o fa-lg" for="12" title="5 out of 5 stars"></label>
+                                            <input class="star-rating__input" id="13" type="radio" name="rating" value="4">
+                                            <label class="star-rating__ico fa fa-star-o fa-lg" for="13" title="4 out of 5 stars"></label>
+                                            <input class="star-rating__input" id="14" type="radio" name="rating" value="3">
+                                            <label class="star-rating__ico fa fa-star-o fa-lg" for="14" title="3 out of 5 stars"></label>
+                                            <input class="star-rating__input" id="15" type="radio" name="rating" value="2">
+                                            <label class="star-rating__ico fa fa-star-o fa-lg" for="15" title="2 out of 5 stars"></label>
+                                            <input class="star-rating__input" id="16" type="radio" name="rating" value="1">
+                                            <label class="star-rating__ico fa fa-star-o fa-lg" for="16" title="1 out of 5 stars"></label>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="slider__item-title">Кровать «Триумф»</div>
                                 <div class="price">8 000 ₽ </div>
                                 <button type="button" class="cart-button">
@@ -182,7 +264,22 @@
                         <div class="slider__item">
                             <div class="slider__item-thumb"></div>
                             <div class="slider__item-content">
-                                <div class="slider__item-rate"></div>
+                                <div class="slider__item-rate">
+                                    <div class="star-rating">
+                                        <div class="star-rating__wrap">
+                                            <input class="star-rating__input" id="17" type="radio" name="rating" value="5">
+                                            <label class="star-rating__ico fa fa-star-o fa-lg" for="17" title="5 out of 5 stars"></label>
+                                            <input class="star-rating__input" id="18" type="radio" name="rating" value="4">
+                                            <label class="star-rating__ico fa fa-star-o fa-lg" for="18" title="4 out of 5 stars"></label>
+                                            <input class="star-rating__input" id="19" type="radio" name="rating" value="3">
+                                            <label class="star-rating__ico fa fa-star-o fa-lg" for="19" title="3 out of 5 stars"></label>
+                                            <input class="star-rating__input" id="20" type="radio" name="rating" value="2">
+                                            <label class="star-rating__ico fa fa-star-o fa-lg" for="20" title="2 out of 5 stars"></label>
+                                            <input class="star-rating__input" id="21" type="radio" name="rating" value="1">
+                                            <label class="star-rating__ico fa fa-star-o fa-lg" for="21" title="1 out of 5 stars"></label>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="slider__item-title">Кровать «Триумф»</div>
                                 <div class="price">8 000 ₽ </div>
                                 <button type="button" class="cart-button">
@@ -194,7 +291,22 @@
                         <div class="slider__item">
                             <div class="slider__item-thumb"></div>
                             <div class="slider__item-content">
-                                <div class="slider__item-rate"></div>
+                                <div class="slider__item-rate">
+                                    <div class="star-rating">
+                                        <div class="star-rating__wrap">
+                                            <input class="star-rating__input" id="22" type="radio" name="rating" value="5">
+                                            <label class="star-rating__ico fa fa-star-o fa-lg" for="22" title="5 out of 5 stars"></label>
+                                            <input class="star-rating__input" id="23" type="radio" name="rating" value="4">
+                                            <label class="star-rating__ico fa fa-star-o fa-lg" for="23" title="4 out of 5 stars"></label>
+                                            <input class="star-rating__input" id="24" type="radio" name="rating" value="3">
+                                            <label class="star-rating__ico fa fa-star-o fa-lg" for="24" title="3 out of 5 stars"></label>
+                                            <input class="star-rating__input" id="25" type="radio" name="rating" value="2">
+                                            <label class="star-rating__ico fa fa-star-o fa-lg" for="25" title="2 out of 5 stars"></label>
+                                            <input class="star-rating__input" id="26" type="radio" name="rating" value="1">
+                                            <label class="star-rating__ico fa fa-star-o fa-lg" for="26" title="1 out of 5 stars"></label>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="slider__item-title">Кровать «Триумф»</div>
                                 <div class="price">8 000 ₽ </div>
                                 <button type="button" class="cart-button">
@@ -445,6 +557,12 @@
             </div>
         </div>
     </footer>
+    <div class="navbar-mobile icon__panel">
+        <div class="icon__item"><a href="#"><span class="icon-heart"></span></a></div>
+        <div class="icon__item"><a href="#"><span class="icon-map-pin"></span></a></div>
+        <div class="icon__item"><a href="#"><span class="icon-user"></span></a></div>
+        <div class="icon__item"><a href="#"><div class="icon-cart flex"><div class="round"><p>1</p></div></div></a></div>
+    </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/GentleForm.js"></script>
     <script src="js/slick.min.js"></script>

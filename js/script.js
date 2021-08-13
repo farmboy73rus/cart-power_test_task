@@ -67,3 +67,14 @@ function addToast (type, message) {
 
   setTimeout(() => toast.classList.add('toast--show'), 100)
 }
+
+
+$('.burger__menu a').click(function(){
+ 
+  $('.trigger').toggle();
+  $('.burger__menu').toggleClass('rounded');
+  $('.close').toggle();
+  $('.drop-down').toggleClass('down');
+  
+ 
+});
